@@ -22,7 +22,7 @@ goto configureTool
     echo ^| License detail can be found in `LICENSE` file.                      ^|
     echo ^|                                                                     ^|
     echo +---------------------------------------------------------------------+
-    echo ^| Version 1.0.1                                                       ^|
+    echo ^| Version 1.1.0                                                       ^|
     echo +---------------------------------------------------------------------+
     echo.
     goto :eof
@@ -139,9 +139,11 @@ goto configureTool
     rem Specify download folder and video URI
     rem Download folder default point to user's download folder if user is not specify a path.
     echo ^> Setting download folder. Default is current user's download folder.
+    echo ^> You can use relative path or absolute path to specify where to save the file.
+    echo ^> If folder doesn't exist, it will be create automatically.
     set "store_path=%userprofile%\Downloads"
     set "update_option=yes"
-    set "format_options=bestvideo[height^<^=1080][ext^=mp4]+bestaudio[ext^=m4a]/best[ext^=mp4]/best"
+    set "video_resolution=4320"
     set /P "store_path=Download folder: (Press Enter to skip) "
     echo.
     echo ^> This tool is designed to support Youtube ONLY even if yt-dlp support more sites.
@@ -149,13 +151,43 @@ goto configureTool
     set /P "target_uri=Input video URI: "
     call :checkVideoURIEmpty
     echo.
+    echo ^> Select what resolution to download. Default resolution is 4K.
+    echo ^> yt-dlp will download less than or equal to what resolution is specified.
+    echo ^> Using 4320, 2140, 1080, ..., etc. to specify resolution.
+    set /P "video_resolution=Specify video resolution: (Default is 4K, press Enter to skip) "
+    echo.
     echo ^> You can use your format options here or just press enter to use default setting.
-    set /P "format_options=Input your format options: (Press Enter to skip)"
+    echo ^> If change format options here, you need to specify your video resolution yourself here.
+    echo ^> See official documents for more informations.
+    set "format_options=bestvideo[height^<^=%video_resolution%][ext^=mp4]+bestaudio[ext^=m4a]/best[ext^=mp4]/best"
+    set /P "format_options=Input your format options: (Press Enter to skip) "
     echo.
     echo ^> Setting the process to update yt-dlp first or not
     echo ^> Download process will still continue regardless of update process is failed or not
     set /P "update_option=Update yt-dlp first? (using `no` to ignore update process, default is `yes`) "
-    call :updateYTDLP
+    goto confirmSettings
+
+:confirmSettings
+    call :cleanScreen
+    call :showLicenseInfo
+    call :showMessage
+
+    echo ^|^| Confirm Configurations
+    echo +----------------------------------------------------------------------
+    echo ^| Download folder: %store_path%
+    echo ^| From URI: %target_uri%
+    echo ^| Format Options: %format_options%
+    echo ^| Update yt-dlp First: %update_option%
+    echo +----------------------------------------------------------------------
+    echo.
+    set "confirm_settings=yes"
+    set /P "confirm_settings=Confirm the configurations (Press Enter or `yes` to confirm, `no` to reconfigure) "
+    if "%confirm_settings%" equ "yes" (
+        call :updateYTDLP
+        goto mainDownloadProcess
+    ) else (
+        goto configureTool
+    )
 
 :mainDownloadProcess
     call :cleanScreen
@@ -172,7 +204,7 @@ goto configureTool
     echo Begin download process with yt-dlp ...
     echo You can terminate the process by pressing Ctrl + C
     echo.
-    echo Please note the download process will ignore if the video was downloaded before.
+    echo Please note the download process will be ignored if the video had been downloaded before.
     echo -----------------------------------------------------------------------
     echo.
 
