@@ -7,6 +7,8 @@ rem
 rem MIT License, See `LICENSE` file to get more informations.
 rem Copyright (C) 2023 SamuiKaze
 
+chcp 65001 >nul 2>&1
+
 call :showLicenseInfo
 
 goto configureTool
@@ -22,7 +24,7 @@ goto configureTool
     echo ^| License detail can be found in `LICENSE` file.                      ^|
     echo ^|                                                                     ^|
     echo +---------------------------------------------------------------------+
-    echo ^| Version 1.1.0                                                       ^|
+    echo ^| Version 1.1.1                                                       ^|
     echo +---------------------------------------------------------------------+
     echo.
     goto :eof
@@ -40,12 +42,36 @@ goto configureTool
         echo Updating yt-dlp ...
         echo Do not terminate the process or the yt-dlp may be deleted by itself.
         .\yt-dlp.exe -U
-    )
-    if "%update_option%" equ "true" (
+    ) else if "%update_option%" equ "true" (
+        echo Updating yt-dlp ...
+        echo Do not terminate the process or the yt-dlp may be deleted by itself.
+        .\yt-dlp.exe -U
+    )  else if "%update_option%" equ "y" (
+        echo Updating yt-dlp ...
+        echo Do not terminate the process or the yt-dlp may be deleted by itself.
+        .\yt-dlp.exe -U
+    )  else if "%update_option%" equ "t" (
+        echo Updating yt-dlp ...
+        echo Do not terminate the process or the yt-dlp may be deleted by itself.
+        .\yt-dlp.exe -U
+    ) else if "%update_option%" equ "YES" (
+        echo Updating yt-dlp ...
+        echo Do not terminate the process or the yt-dlp may be deleted by itself.
+        .\yt-dlp.exe -U
+    ) else if "%update_option%" equ "TRUE" (
+        echo Updating yt-dlp ...
+        echo Do not terminate the process or the yt-dlp may be deleted by itself.
+        .\yt-dlp.exe -U
+    ) else if "%update_option%" equ "Y" (
+        echo Updating yt-dlp ...
+        echo Do not terminate the process or the yt-dlp may be deleted by itself.
+        .\yt-dlp.exe -U
+    ) else if "%update_option%" equ "T" (
         echo Updating yt-dlp ...
         echo Do not terminate the process or the yt-dlp may be deleted by itself.
         .\yt-dlp.exe -U
     )
+
     goto :eof
 
 :showMessage
@@ -113,7 +139,7 @@ goto configureTool
         call :cleanScreen
         call :showLicenseInfo
 
-        echo !!! Error !!!
+        echo ! Error: Video URI is required
         echo -----------------------------------------------------------------------
         echo Video URI can not be empty.
         echo Please specify a video URI to download.
@@ -140,15 +166,15 @@ goto configureTool
     rem Download folder default point to user's download folder if user is not specify a path.
     echo ^> Setting download folder. Default is current user's download folder.
     echo ^> You can use relative path or absolute path to specify where to save the file.
-    echo ^> If folder doesn't exist, it will be create automatically.
+    echo ^> If folder doesn't exist, it will be created automatically.
     set "store_path=%userprofile%\Downloads"
-    set "update_option=yes"
+    set "update_option=n"
     set "video_resolution=4320"
     set /P "store_path=Download folder: (Press Enter to skip) "
     echo.
     echo ^> This tool is designed to support Youtube ONLY even if yt-dlp support more sites.
     echo ^> But you can still give it a try.
-    set /P "target_uri=Input video URI: "
+    set /P "target_uri=Input video URI: (Required) "
     call :checkVideoURIEmpty
     echo.
     echo ^> Select what resolution to download. Default resolution is 4K.
@@ -157,14 +183,16 @@ goto configureTool
     set /P "video_resolution=Specify video resolution: (Default is 4K, press Enter to skip) "
     echo.
     echo ^> You can use your format options here or just press enter to use default setting.
-    echo ^> If change format options here, you need to specify your video resolution yourself here.
+    echo ^> Video resolution  is required if you change format options here.
     echo ^> See official documents for more informations.
+    echo ^> You can press Enter to skip and use default format options.
     set "format_options=bestvideo[height^<^=%video_resolution%][ext^=mp4]+bestaudio[ext^=m4a]/best[ext^=mp4]/best"
     set /P "format_options=Input your format options: (Press Enter to skip) "
     echo.
-    echo ^> Setting the process to update yt-dlp first or not
+    echo ^> Setting the process to update yt-dlp first or not, Default is `no`
     echo ^> Download process will still continue regardless of update process is failed or not
-    set /P "update_option=Update yt-dlp first? (using `no` to ignore update process, default is `yes`) "
+    echo ^> Update yt-dlp before download is strongly recommanded.
+    set /P "update_option=Update yt-dlp first? (Y/N) "
     goto confirmSettings
 
 :confirmSettings
@@ -180,9 +208,18 @@ goto configureTool
     echo ^| Update yt-dlp First: %update_option%
     echo +----------------------------------------------------------------------
     echo.
-    set "confirm_settings=yes"
-    set /P "confirm_settings=Confirm the configurations (Press Enter or `yes` to confirm, `no` to reconfigure) "
-    if "%confirm_settings%" equ "yes" (
+    set "confirm_settings=Y"
+    set /P "confirm_settings=Confirm the configurations (Press `Enter` or `Y` to confirm, `N` to reconfigure) "
+    if "%confirm_settings%" equ "Y" (
+        call :updateYTDLP
+        goto mainDownloadProcess
+    ) else if "%confirm_settings%" equ "y" (
+        call :updateYTDLP
+        goto mainDownloadProcess
+    ) else if "%confirm_settings%" equ "yes" (
+        call :updateYTDLP
+        goto mainDownloadProcess
+    ) else if "%confirm_settings%" equ "YES" (
         call :updateYTDLP
         goto mainDownloadProcess
     ) else (
