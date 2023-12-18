@@ -1,0 +1,79 @@
+lang_reconfig_question=是否需要重新執行工具設定？ (使用 `y` 重新設定工具，按 `Enter` 跳過此步驟)
+
+lang_updating=正在更新 yt-dlp 中...
+lang_update_warning=請勿關閉此工具，否則 yt-dlp 可能會被它自己移除。
+
+lang_dependency_check_title=相依工具檢查
+lang_dependency_check_green=[綠燈] 全部檢查皆通過!
+lang_dependency_check_yellow=[黃燈] 發現部分警告訊息!
+lang_dependency_check_yellow_ignore_tip=你可以無視警告繼續使用，或關閉工具修正這些問題
+
+lang_ffmpeg_missing_warning_title=Warning: 找不到 ffmpeg.exe
+lang_ffmpeg_missing_warning_message_l1=找不到 ffmpeg.exe!
+lang_ffmpeg_missing_warning_message_l2=合併影像與音訊需要使用 FFmpeg
+lang_ffmpeg_missing_warning_message_l3=若選擇無視此警告，則影像與音訊需要由您自己手動合併為單一影片檔案。
+
+lang_yt_dlp_missing_error_title=Error: 找不到 yt-dlp.exe
+lang_yt_dlp_missing_error_message_l1=找不到 yt-dlp.exe!
+lang_yt_dlp_missing_error_message_l2=此工具下載影片依賴於 yt-dlp 此工具。
+lang_yt_dlp_missing_error_message_l3=請將此批次處理檔案與 `yt-dlp.exe` 放置於同個資料夾中。
+lang_yt_dlp_missing_error_message_lend=請按任意鍵結束此工具並修正此問題。
+
+lang_video_uri_check_error_title=Error: 影片網址為必填
+lang_video_uri_check_error_message_l1=影片網址不可留空
+lang_video_uri_check_error_message_l2=請指定有效的影片網址。
+lang_video_uri_check_error_message_lend=請按任意鍵重新進行設定。
+
+lang_setting_language_help_l1=^> 指定顯示語言
+lang_setting_language_help_l2=^> 請使用 ISO-639-1 並包含 ISO-3166-1 標準的全小寫字母設定。
+lang_setting_language_help_l3=^> 你可以從下面的網址找到語言清單
+lang_setting_language_help_l4=^> 範例: en-us, zh-tw, ... 等。
+lang_setting_language_tip=設定顯示語言: (必填)
+
+lang_setting_download_folder_help_l1=^> 設定下載資料夾，預設為系統的下載資料夾。
+lang_setting_download_folder_help_l2=^> 你可以使用相對或絕對路徑指定資料夾位址。
+lang_setting_download_folder_help_l3=^> 若此資料夾不存在，則該資料夾會被自動建立。
+lang_setting_download_folder_tip=設定下載資料夾: (按 Enter 跳過)
+
+lang_setting_target_uri_help_l1=^> 即便 yt-dlp 支援許多網站，此工具「仍僅」被設計用以下載 Youtube 的影片
+lang_setting_target_uri_help_l2=^> 但你還是可以嘗試看看，說不定可行
+lang_setting_target_uri_tip=指定影片網址: (必填)
+
+lang_setting_video_resolution_help_l1=^> 指定要下載哪種畫質的影片，預設畫質為 4K。
+lang_setting_video_resolution_help_l2=^> yt-dlp 將會下載小於或等於你指定的畫質。
+lang_setting_video_resolution_help_l3=^> 範例: 4320, 2140, 1080, ... 等。
+lang_setting_video_resolution_tip=指定畫質: (預設為 4K，按 Enter 跳過)
+
+lang_setting_custom_format_options_help_l1=^> 你可以自訂影片下載選項或使用此工具預設的下載選項
+lang_setting_custom_format_options_help_l2=^> 若你需要自訂影片下載選項，則畫質也需要「自己指定」。
+lang_setting_custom_format_options_help_l3=^> 下載選項說明請參閱官方文件。
+lang_setting_custom_format_options_help_l4=^> 你可以直接按 Enter 跳過，使用工具預設的下載選項。
+lang_setting_custom_format_options_tip=自訂下載選項: (按 Enter 跳過)
+
+lang_setting_update_option_help_l1=^> 設定是否先進行 yt-dlp 的更新後再執行下載，預設設定為 `yes`
+lang_setting_update_option_help_l2=^> 不論更新成功與否，影片仍會進行下載
+lang_setting_update_option_help_l3=^> 非常推薦先進行 yt-dlp 更新後再執行下載。
+lang_setting_update_option_tip=是否先進行 yt-dlp 的更新? (Y/N)
+
+lang_exporting_settings_tip=匯出設定中，請稍候 ...
+lang_exporting_settings_file_comment_custom_format_option=^; 解除下一行的註解並移除前導底線，以進行自訂下載選項的設定儲存
+lang_apply_config_now_l1=匯出設定成功！
+lang_apply_config_now_l2=重新載入設定中 ...
+
+lang_confirm_setting_title=確認設定
+lang_confirm_setting_download_folder=下載資料夾
+lang_confirm_setting_from_uri=影片網址
+lang_confirm_setting_format_options=下載選項
+lang_confirm_setting_update_option=是否先進行 yt-dlp 更新
+lang_confirm_setting_export_warning_l1=^> 由於跳脫字元的問題，
+lang_confirm_setting_export_warning_l2=^> 若你需要儲存自訂的下載選項，
+lang_confirm_setting_export_warning_l3=^> 請解除 `_format_options` 的註解並移除前導底線後方可使用。
+lang_confirm_setting_tip=確認設定是否正確 (按 `Enter` 或輸入 `Y` 確認, 輸入 `N` 重新進行設定)
+
+lang_download_process_config_title=設定
+lang_download_process_config_download_folder=下載資料夾
+lang_download_process_config_from_uri=影片網址
+lang_download_process_config_format_options=下載選項
+lang_download_process_tip_l1=正在透過 yt-dlp 進行影片下載...
+lang_download_process_tip_l2=你可以按下 Ctrl + C 中止下載程序
+lang_download_process_tip_lend=請注意：若影片曾被下載過，則 yt-dlp 將會自動跳過下載程序。

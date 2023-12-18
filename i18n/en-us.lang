@@ -1,0 +1,79 @@
+lang_reconfig_question=Do you need to re-configure your setting? (`y` to reconfigure, Enter to skip)
+
+lang_updating=Updating yt-dlp ...
+lang_update_warning=Do not terminate the process or the yt-dlp may be deleted by itself.
+
+lang_dependency_check_title=Dependencies Check
+lang_dependency_check_green=[Green] Check all passed!
+lang_dependency_check_yellow=[Yellow] There are some warnings found!
+lang_dependency_check_yellow_ignore_tip=You can ignore warnings anyway or terminate the process.
+
+lang_ffmpeg_missing_warning_title=Warning: ffmpeg.exe not found
+lang_ffmpeg_missing_warning_message_l1=ffmpeg.exe not found!
+lang_ffmpeg_missing_warning_message_l2=FFmpeg is required to merge video and audio file.
+lang_ffmpeg_missing_warning_message_l3=Or you'll need to merge them by yourself.
+
+lang_yt_dlp_missing_error_title=Error: yt-dlp.exe not found
+lang_yt_dlp_missing_error_message_l1=yt-dlp.exe not found!
+lang_yt_dlp_missing_error_message_l2=yt-dlp is required to download the video.
+lang_yt_dlp_missing_error_message_l3=Please put this batch file in the folder where `yt-dlp.exe` is located.
+lang_yt_dlp_missing_error_message_lend=Press any key to exit the tool to fix the errors.
+
+lang_video_uri_check_error_title=Error: Video URI is required
+lang_video_uri_check_error_message_l1=Video URI can not be empty.
+lang_video_uri_check_error_message_l2=Please specify a video URI to download.
+lang_video_uri_check_error_message_lend=Press any key to reconfigure the settings.
+
+lang_setting_language_help_l1=^> Specific which language do you prefer.
+lang_setting_language_help_l2=^> Using ISO-639-1 with ISO-3166-1 standards and lowercase alphabets.
+lang_setting_language_help_l3=^> You can find the list by click the links below
+lang_setting_language_help_l4=^> Example: en-us, zh-tw, ..., etc.
+lang_setting_language_tip=Input display language: (Required)
+
+lang_setting_download_folder_help_l1=^> Setting download folder. Default is current user's download folder.
+lang_setting_download_folder_help_l2=^> You can use relative path or absolute path to specify where to save the file.
+lang_setting_download_folder_help_l3=^> If folder doesn't exist, it will be created automatically.
+lang_setting_download_folder_tip=Download folder: (Press Enter to skip)
+
+lang_setting_target_uri_help_l1=^> This tool is designed to support Youtube ONLY even if yt-dlp support more sites.
+lang_setting_target_uri_help_l2=^> But you can still give it a try.
+lang_setting_target_uri_tip=Input video URI: (Required)
+
+lang_setting_video_resolution_help_l1=^> Select what resolution to download. Default resolution is 4K.
+lang_setting_video_resolution_help_l2=^> yt-dlp will download less than or equal to what resolution is specified.
+lang_setting_video_resolution_help_l3=^> Using 4320, 2140, 1080, ..., etc. to specify resolution.
+lang_setting_video_resolution_tip=Specify video resolution: (Default is 4K, press Enter to skip)
+
+lang_setting_custom_format_options_help_l1=^> You can use your format options here or just press enter to use default setting.
+lang_setting_custom_format_options_help_l2=^> Video resolution  is required if you change format options here.
+lang_setting_custom_format_options_help_l3=^> See official documents for more informations.
+lang_setting_custom_format_options_help_l4=^> You can press Enter to skip and use default format options.
+lang_setting_custom_format_options_tip=Input your format options: (Press Enter to skip)
+
+lang_setting_update_option_help_l1=^> Setting the process to update yt-dlp first or not, Default is `yes`
+lang_setting_update_option_help_l2=^> Download process will still continue regardless of update process is failed or not
+lang_setting_update_option_help_l3=^> Update yt-dlp before download is strongly recommanded.
+lang_setting_update_option_tip=Update yt-dlp first? (Y/N)
+
+lang_exporting_settings_tip=Exporting configurations, please wait ...
+lang_exporting_settings_file_comment_custom_format_option=^; Uncomment next line and remove leading underline to save your custom format options
+lang_apply_config_now_l1=Configurations are exported successfully.
+lang_apply_config_now_l2=Reloading configurations ...
+
+lang_confirm_setting_title=Confirm Configurations
+lang_confirm_setting_download_folder=Download folder
+lang_confirm_setting_from_uri=From URI
+lang_confirm_setting_format_options=Format Options
+lang_confirm_setting_update_option=Update yt-dlp First
+lang_confirm_setting_export_warning_l1=^> Due to escaping special character in string issue
+lang_confirm_setting_export_warning_l2=^> If you want to save custom format options to config file,
+lang_confirm_setting_export_warning_l3=^> uncomment ^^`_format_options` line and remove leading underline to save it.
+lang_confirm_setting_tip=Confirm the configurations (Press `Enter` or `Y` to confirm, `N` to reconfigure)
+
+lang_download_process_config_title=Configurations
+lang_download_process_config_download_folder=Download folder
+lang_download_process_config_from_uri=From URI
+lang_download_process_config_format_options=Format Options
+lang_download_process_tip_l1=Begin download process with yt-dlp ...
+lang_download_process_tip_l2=You can terminate the process by pressing Ctrl + C
+lang_download_process_tip_lend=Please note the download process will be ignored if the video had been downloaded before.
