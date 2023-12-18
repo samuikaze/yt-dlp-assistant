@@ -1,0 +1,6 @@
+# Configuration file
+configs.ini
+
+# Dependencies
+yt-dlp.exe
+ffmpeg.exe
