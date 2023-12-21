@@ -32,10 +32,10 @@ goto configureTool
     )
 
     rem Loading language file after configurations are loaded.
-    rem If configurations file not found, using en-US as fallback language.
+    rem If configurations file not found, using en-us as fallback language.
     echo Loading language file, please wait ...
     if "%lang%" equ "" (
-        set "lang=en-US"
+        set "lang=en-us"
     )
 
     set "lang_file=.\i18n\%lang%.lang"
@@ -43,8 +43,8 @@ goto configureTool
     if exist %lang_file% (
         for /f "delims== tokens=1,2" %%M in (%lang_file%) do set %%M=%%N
     ) else (
-        echo Due to lannguage configuration is empty, using en-US as default language.
-        for /f "delims== tokens=1,2" %%M in (.\i18n\en-US.lang) do set %%M=%%N
+        echo Due to lannguage configuration is empty, using en-us as default language.
+        for /f "delims== tokens=1,2" %%M in (.\i18n\en-us.lang) do set %%M=%%N
     )
 
     echo Configurations are loaded.
@@ -62,7 +62,7 @@ goto configureTool
     echo ^| License detail can be found in `LICENSE` file.                      ^|
     echo ^|                                                                     ^|
     echo +---------------------------------------------------------------------+
-    echo ^| Version 1.2.0                                                       ^|
+    echo ^| Version 1.2.1                                                       ^|
     echo +---------------------------------------------------------------------+
     echo.
     goto :eof
